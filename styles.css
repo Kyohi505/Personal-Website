@@ -9,12 +9,19 @@ p, h1, h2, h3{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-img {
+img{
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+}
+
+.webpMedia{
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 body{
@@ -23,6 +30,12 @@ body{
     padding-bottom: 40px;
     background: url('images/backgroundWeb.png') no-repeat center center;
     background-size: cover;
+}
+
+@supports(background-image: url('optimized_images/backgroundWeb.webp')){
+    body{
+        background-image: url('optimized_images/backgroundWeb.webp');
+    }
 }
 
 .header, .footer{
@@ -130,6 +143,12 @@ body{
     background-size: cover;
 }
 
+@supports(background-image: url('optimized_images/footer/footer.webp')){
+    .footer{
+        background-image: url('optimized_images/footer/footer.webp');
+    }
+}
+
 .footer::before {
     content: '';
     position: absolute;
@@ -142,6 +161,12 @@ body{
     background-size: 125px auto;
     opacity: 0.4;
     z-index: -1;
+}
+
+@supports(background-image: url('optimized_images/bgTexture.webp')){
+    .footer::before{
+        background-image: url('optimized_images/bgTexture.webp');
+    }
 }
 
 .sideLeftFooter{
@@ -190,11 +215,17 @@ body{
     height: 100%;
     background-image: url("images/bgTexture.jpg");
     background-repeat: repeat;
-    background-size: 100px auto; /* Scale each tile to 200px wide (adjust as needed; e.g., 100px for smaller tiles) */
-    background-position: top left; /* Optional: Start tiling from top-left */
-    opacity: 0.2; /* Subtle opacity (0.5 = 50%; adjust to 0.3 for even fainter) */
-    z-index: -1; /* Behind all content */
+    background-size: 100px auto;
+    background-position: top left;
+    opacity: 0.2;
+    z-index: -1;
     pointer-events: none;
+}
+
+@supports(background-image: url('optimized_images/bgTexture.webp')){
+    .mainParent::before{
+        background-image: url('optimized_images/bgTexture.webp');
+    }
 }
 
 /* Left panel*/
@@ -452,12 +483,12 @@ body{
     align-items: center;
     justify-content: center;
     overflow: visible;
+    object-fit: contain;
 }
 
 .media{
     max-width: 100%;
     height: auto;
-    object-fit: contain;
     border: 3px solid #1D252A;
 }
 
@@ -466,14 +497,13 @@ body{
     height: auto;
     object-fit: contain;
     position: relative;
-    left: 40px;
 }
 
 .welcome{
-    min-width: 120%;
+    min-width: 110%;
+    max-width: 110%;
     height: auto;
     margin-top: 20px;
-    margin-left: 20px;
     position: relative;
 }
 
@@ -565,7 +595,13 @@ body{
     z-index: 1; 
     pointer-events: none;
 
-    animation: shift 0.2s linear infinite both;
+    animation: shift 0.1s linear infinite both;
+}
+
+@supports(background-image: url('optimized_images/static.webp')){
+    .staticOverlay{
+        background-image: url('optimized_images/static.webp');
+    }
 }
 
 @keyframes shift{
